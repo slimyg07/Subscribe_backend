@@ -1,5 +1,6 @@
 import express from "express";
 const app = express();
+import { NODE_ENV, PORT } from "./config/env.js";
 
 
 app.get("/", (req,res) => {
@@ -9,7 +10,10 @@ app.get("/", (req,res) => {
 
 
 app.listen(3000,"0.0.0.0", ()=>{
-    console.log("App listeing at 3000 port");
+    console.log(`App running at https://localhost:${PORT} in ${NODE_ENV} mode  `);
 
 }
 )
+
+
+export default app;
