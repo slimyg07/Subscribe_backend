@@ -16,7 +16,28 @@ const userSchema = new mongoose.Schema({
         lowercase : true
     },
 
+    password:{
+        type: String,
+        required: true,
+        minlength : 6
+    }
+
 },{timestamps: true})
+
+
+userSchema.pre("save", async function name(next) {
+    if(!this.modified("password")){
+        return next();
+    }
+
+    const salt = bcrypt.genSalt(10);
+    this.password = bcrypt.hash(this.password,salt);
+    next();
+    
+    
+}
+
+)
 
 
 export const User = mongoose.model("User", userSchema);
