@@ -2,9 +2,11 @@ import { Router } from 'express';
 
 const subscriptionRouter = Router();
 
-subscriptionRouter.get("/:id", (req, res) => res.send("Get all user subscriptions"));
-
 subscriptionRouter.get("/", (req,res ) => res.send("Get all subscriptions"));
+
+
+subscriptionRouter.get("/user/:id", (req, res) => res.send("Get all user subscriptions"));
+
 
 subscriptionRouter.post("/", (req, res) => res.send("Create user subscriptions"));
 
