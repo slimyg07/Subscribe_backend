@@ -1,21 +1,22 @@
 import { Router } from "express";
+import { signIn,signout,signup,getSingleuser,getUser } from "../controllers/user.controller";
 
 const authRouter = Router();
 
 
-authRouter.post("/signup", (req,res) => {res.send("Sign-UP")} );
+authRouter.post("/signup", signup );
 
 
-authRouter.post("/signin", (req,res) => {res.send("Sign-In")} );
+authRouter.post("/signin", signIn );
 
 
-authRouter.post("/signout", (req,res) => {res.send("Sign-Out")} );
+authRouter.post("/signout", signout );
 
 
-authRouter.get("/users", (req,res) => res.send("Fetch all users"));
+authRouter.get("/users", getUser);
 
 
-authRouter.get('/:id', (req,res) => res.send("Fetch user details"));
+authRouter.get('/:id', getSingleuser);
 
 
 authRouter.put("/:id", (req,res) => res.send("Update user details"));

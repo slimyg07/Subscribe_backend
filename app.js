@@ -5,7 +5,7 @@ import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import mongoose from "mongoose";
 import dbConnect from "./config/mongodb.js";
-import User from "./models/user.model.js";
+
 
 
 const app = express();
