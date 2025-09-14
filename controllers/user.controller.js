@@ -106,3 +106,21 @@ export const signout = async (req, res, next) => {
         next(error);
     }   
 }
+
+
+export const getUser = async (req , res, next) => {
+    try {
+
+        const user = await User.find();
+        res.status(200).json({
+            success : true,
+            message : "Fetched all users",
+            data : user
+            
+        })
+      
+    } catch (error) {
+        next(error);
+    }
+}
+
