@@ -5,6 +5,7 @@ import authRouter from "./routes/auth.routes.js";
 import subscriptionRouter from "./routes/subscription.routes.js";
 import mongoose from "mongoose";
 import dbConnect from "./config/mongodb.js";
+import User from "./models/user.model.js";
 
 
 const app = express();
@@ -14,9 +15,12 @@ app.use('/api/v1/users', authRouter);
 
 app.use('/api/v1/subscriptions', subscriptionRouter);
 
-app.get("/", (req,res) => {
+app.get("/", async (req,res) => {
+   
    
     res.send("<h1>Harshvardhan</h1>");
+        
+
 });
 
 
